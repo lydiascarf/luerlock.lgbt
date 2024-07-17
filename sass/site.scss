@@ -1,0 +1,126 @@
+/* vars and mix-ins */
+$font-size: 1.2em;
+
+/* text */
+@font-face {
+  font-family: "Questrial";
+  src: url("Questrial-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Syne";
+  src: url("Syne-Bold.ttf");
+}
+
+h1 {
+  font-size: $font-size + 1.8em;
+}
+
+h2 {
+  font-size: $font-size + 0.8em;
+}
+
+h3 {
+  font-size: $font-size + 0.4em;
+  text-align: center;
+}
+
+h4 {
+  font-size: $font-size + 0.2em;
+  text-align: center;
+  margin: 0.5em;
+}
+
+.title {
+  color: black;
+  font-family: "Syne", sans-serif;
+  padding: 0.25em 0.4em;
+  pointer-events: all;
+  text-align: center;
+  text-decoration: inherit;
+  user-select: none;
+}
+
+/* high level containers */
+html {
+  background-image: url("background.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Questrial", sans-serif;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  width: 100vw;
+}
+
+body {
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+}
+
+.column {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 65vh;
+  overflow-y: scroll;
+}
+
+/* browser element overrides */
+
+/* For browsers that support `scrollbar-*` properties */
+@supports (scrollbar-color: auto) {
+  .scroll {
+    scrollbar-color: black transparent;
+  }
+}
+
+/* Otherwise, use `::-webkit-scrollbar-*` pseudo-elements */
+@supports selector(::-webkit-scrollbar) {
+  .scroll::-webkit-scrollbar {
+    background: transparent;
+  }
+  .scroll::-webkit-scrollbar-thumb {
+    background: black;
+  }
+}
+
+/* media queries */
+@media (min-width:20em)  { /* smartphones, iPhone, portrait 480x320 phones */ 
+  body {
+    background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.1) 70%, rgba(255, 255, 255, 1));
+  }
+
+  main {
+    min-height: calc(79vh);
+  }
+
+  .column {
+    padding: .25em 0.4em;
+    height: 20vh;
+  }
+}
+
+@media (min-width:30em)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ 
+  body {
+    background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7) 90%, rgba(255, 255, 255, 1));
+  }
+
+  main {
+    min-height: calc(83vh);
+  }
+
+  .column {
+    padding: .25em 12em;
+    height: 10vh;
+  }
+}
+
+@media (min-width:40em)  { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ }
+@media (min-width:60em)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ }
+@media (min-width:64em) { /* big landscape tablets, laptops, and desktops */ }
+@media (min-width:80em) { /* hi-res laptops and desktops */ }
